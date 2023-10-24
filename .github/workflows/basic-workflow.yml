@@ -37,10 +37,17 @@ jobs:
 
   deployment:
     runs-on: ubuntu-latest
-    environment: DEV
     steps:
       - name: Run only if a PR is opened!
         if: ${{ github.event_name == 'pull_request' }}
         run: echo Hello, from the PR!!
 
+      - uses: actions/checkout@v3
+        with:
+          repository: im-sandbox-mikaelt/hello-ferg-composite-action
+          path: ./.github/actions/hello-ferg-composite-action
+      
+      - uses: ./.github/actions/hello-ferg-composite-action
+        with:
+          who-to-greet: 'Mona the Octocat'
 
