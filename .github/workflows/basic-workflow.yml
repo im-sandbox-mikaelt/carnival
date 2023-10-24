@@ -46,6 +46,7 @@ jobs:
         with:
           repository: im-sandbox-mikaelt/hello-ferg-composite-action
           path: ./.github/actions/hello-ferg-composite-action
+          token: ${{ secrets.GH_TOKEN }}
       
       - uses: ./.github/actions/hello-ferg-composite-action
         with:
